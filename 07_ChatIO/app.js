@@ -13,7 +13,8 @@ app.get('/', function(req, res){
   //res.sendFile(__dirname + '/style.css');
 });
 
-io.sockets.on('connection', function(socket){
+const { Server } = require("socket.io");
+const io = new Server(server);{
   
   socket.on('new user', function(data, callback){
     if(usernames.indexOf(data) != -1){
